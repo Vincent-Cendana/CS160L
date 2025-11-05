@@ -22,8 +22,9 @@ public class LinkedListExample {
         list.add(tron);
 
         //adding at the start
-        list.add(0, janice);
-        // TODO: can you think of any other way of adding a new element at the start of the list
+        //list.add(0, janice);
+        // TODO (DONE): can you think of any other way of adding a new element at the start of the list
+        list.addFirst(janice);
 
         //Accessing elements from the linkedlist
         System.out.println("List of students added to the class are - ");
@@ -33,7 +34,8 @@ public class LinkedListExample {
 
         //removing elements from the linkedlist
         list.remove(0);
-        // TODO: can you think of any other way of removing the first element
+        // TODO (DONE): can you think of any other way of removing the first element
+        list.removeFirst();
 
         System.out.println("Updated list of students - ");
         //Accessing elements from the linkedlist
@@ -45,8 +47,10 @@ public class LinkedListExample {
         // getLast(), getFirst(), addFirst(), addLast() -> main benefits of using LinkedList
         System.out.println(list.getLast());
 
-        // TODO: Write your code to add janice to the list in place of jane
+        // TODO (DONE): Write your code to add janice to the list in place of jane
         // Replace jane with janice
+        int janeIndex = list.indexOf(jane);
+        list.set(janeIndex, janice);
     }
 
 }

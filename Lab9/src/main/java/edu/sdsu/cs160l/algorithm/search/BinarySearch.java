@@ -3,7 +3,7 @@ package edu.sdsu.cs160l.algorithm.search;
 import java.util.List;
 
 /**
- * TODO implement binary search in lab with your lab partners - ( 2 points )
+ * TODO (DONE) implement binary search in lab with your lab partners - ( 2 points )
  *  In class explanation + demonstration
  * refer to linear search as to checking equality
  * <p>
@@ -21,7 +21,28 @@ public class BinarySearch implements Search {
      * to compare value use .compareTo method rather than > or < operators
      */
     @Override
-    public <T extends Comparable<? super T>> int search(List<T> list, T t) {
+    public <T extends Comparable<? super T>> int search(List<T> list, T t)
+    {
+        int start = 0;
+        int end = list.size()-1;
+        while(start <= end)
+        {
+            int mid = (start+end)/2;
+
+            if(list.get(mid).compareTo(t) == 0)
+            {
+                return mid;
+            }
+            else if(list.get(mid).compareTo(t) < 0)
+            {
+                start = mid+1;
+            }
+            else
+            {
+                end = mid-1;
+            }
+        }
+
         return -1;
     }
 }

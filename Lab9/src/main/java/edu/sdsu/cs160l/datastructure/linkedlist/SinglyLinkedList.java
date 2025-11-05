@@ -85,7 +85,6 @@ public class SinglyLinkedList {
         return list;
     }
 
-
     public static void main(String[] args)
     {
         //Creating a singly linkedlist
@@ -106,12 +105,31 @@ public class SinglyLinkedList {
         // Print the LinkedList
         printList(list);
 
-        /* TODO: Create a singly linked list to store course names and perform the following tasks
+        /* TODO (DONE): Create a singly linked list to store course names and perform the following tasks
             1. Insert course names CS150, CS160, CS210
             2. Delete CS150, CS160
             3. Add CS150L, CS160L
             4. Iterate through the linkedlist and print all the courses
          */
+        SinglyLinkedList courseList = new SinglyLinkedList();
+        SinglyLinkedList.insert(courseList, "CS150");
+        SinglyLinkedList.insert(courseList, "CS160");
+        SinglyLinkedList.insert(courseList, "CS210");
+        SinglyLinkedList.deleteByKey(courseList, "CS150");
+        SinglyLinkedList.deleteByKey(courseList, "CS160");
+        SinglyLinkedList.insert(courseList, "CS150L");
+        SinglyLinkedList.insert(courseList, "CS160L");
+
+        Node currNode = list.head;
+        System.out.print("Courses Available are: ");
+        // Traversing through the LinkedList
+        while (currNode != null) {
+            System.out.print(currNode.studentName + " ");
+            currNode = currNode.next;
+        }
+
+        System.out.println();
+
         String course = "CS210";
     }
 }

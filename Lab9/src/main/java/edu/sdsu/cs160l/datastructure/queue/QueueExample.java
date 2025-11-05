@@ -40,11 +40,29 @@ public class QueueExample {
             System.out.println(queue.poll());
         }
 
-        // TODO - Create a queue of students 5 students
-        // TODO - initialise 5 students and add them to the queue
-        // TODO - remove the first two students and add 1 student
-        // TODO - print the final queue
+        // TODO (DONE) - Create a queue of students 5 students
+        // TODO (DONE) - initialise 5 students and add them to the queue
+        // TODO (DONE) - remove the first two students and add 1 student
+        // TODO (DONE) - print the final queue
+        Queue<Student> students = new LinkedList<>();
 
         Student john = new Student(1L, "John", 4.0, StudentLevel.FRESHMAN, StudentMajor.COMPUTER_SCIENCE);
+        Student elissa = new Student(1L, "Elissa", 4.0, StudentLevel.SENIOR, StudentMajor.PHYSICS);
+        Student jean = new Student(1L, "Jean", 4.0, StudentLevel.FRESHMAN, StudentMajor.BIOLOGY);
+        Student vincent = new Student(1L, "Vincent", 4.0, StudentLevel.FRESHMAN, StudentMajor.COMPUTER_SCIENCE);
+        Student sooben = new Student(1L, "Sooben", 4.0, StudentLevel.SOPHOMORE, StudentMajor.MATH);
+        Student lilian = new Student(1L, "Lilian", 4.0, StudentLevel.SOPHOMORE, StudentMajor.BIOLOGY);
+
+        students.add(john);
+        students.add(elissa);
+        students.add(jean);
+        students.add(vincent);
+        students.add(sooben);
+
+        students.poll();
+        students.poll();
+        students.add(lilian);
+
+        System.out.println(students);
     }
 }
