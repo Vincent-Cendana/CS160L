@@ -2,7 +2,7 @@ package edu.sdsu.cs160l.datastructure;
 
 import java.util.Stack;
 
-// TODO implement the below function (2 points)
+// TODO (DONE) implement the below function (2 points)
 // use ParenthesisTest to test your implementation
 public class Parenthesis {
     /**
@@ -14,6 +14,16 @@ public class Parenthesis {
      * @return true is the brackets are balanced else false
      */
     public boolean isBalanced(String brackets) {
-        return false;
+        Stack<Character> stack = new Stack<>();
+        for(int i = 0; i < brackets.length(); i++) {
+            if (brackets.charAt(i) == '(') {
+                stack.push('(');
+            } else if(stack.isEmpty() || stack.pop() != '(')
+            {
+                return false;
+            }
+        }
+
+        return stack.isEmpty();
     }
 }
