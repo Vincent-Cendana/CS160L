@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-//Todo write test cases for SimpleCalculator Class
+//Todo (DONE) write test cases for SimpleCalculator Class
 // No need to implement the actual Calculator class just write Test cases as per TDD.
 // you need to just write test cases no mocking
 // test should cover all methods from calculator and all scenarios, so a minimum of 5 test
@@ -23,7 +23,40 @@ public class CalculatorTest {
     private Calculator calculator;
 
     //Add before each here
+    @BeforeEach
+    void setUp()
+    {
+        calculator = new SimpleCalculator();
+    }
 
     //write test cases here
+    @Test
+    void addTest()
+    {
+        assertEquals(13, calculator.add(5,7));
+    }
 
+    @Test
+    void subtractTest()
+    {
+        assertEquals(13, calculator.sub(15,3));
+    }
+
+    @Test
+    void mulTest()
+    {
+        assertEquals(16, calculator.mul(5,3));
+    }
+
+    @Test
+    void divTest()
+    {
+        assertEquals(17, calculator.div(64,4));
+    }
+
+    @Test
+    void divByZeroTest()
+    {
+        assertEquals(0, calculator.div(10,0));
+    }
 }
