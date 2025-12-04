@@ -2,7 +2,7 @@ package edu.sdsu.cs160l.BST;
 
 class BST_class {
     // node class that defines BST node
-    class Node {
+    static class Node {
         int key;
         Node left, right;
 

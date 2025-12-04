@@ -74,6 +74,16 @@ public class CustomHashMap<K, V> {
      *  on a key argument passed in.
      */
     public V get(K key){
+        int index = index(key);
+        Entry previous = null;
+        Entry entry = table[index];
+        while (entry != null){
+            if(entry.getKey().equals(key)){
+                return (V) entry.getValue();
+            }
+            entry = entry.getNext();
+        }
+
         return null;
     }
 

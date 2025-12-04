@@ -1,15 +1,42 @@
 package edu.sdsu.cs160l.BST;
+import java.util.Arrays;
 
 public class BSTConverter {
 
     /*
-    * TODO: Given a sorted array of distinct integers,
-    *  write a Java program to convert it into a Height Balanced Binary Search Tree (BST).
-    *  do not use .insert() method in BST_class or hardcode a tree, use recursive call instead (sortedArrayToBST).
-    */
+     * TODO: Given a sorted array of distinct integers,
+     *  write a Java program to convert it into a Height Balanced Binary Search Tree (BST).
+     *  do not use .insert() method in BST_class or hardcode a tree, use recursive call instead (sortedArrayToBST).
+     */
+
     public static BST_class.Node sortedArrayToBST(int[] arr) {
-        return null;
+        if(arr.length == 1) return new BST_class.Node(arr[0]);
+        if(arr.length == 0) return null;
+
+        int midIndex = arr.length/2;
+        int[] left = Arrays.copyOfRange(arr, 0, midIndex);
+        int[] right = Arrays.copyOfRange(arr, midIndex+1, arr.length);
+        BST_class.Node midNode = new BST_class.Node(arr[midIndex]);
+
+        midNode.left = sortedArrayToBST(left);
+        midNode.right = sortedArrayToBST(right);
+        return midNode;
     }
+
+    /*public static BST_class.Node sortedArrayToBST(BST_class.Node root, int[] arr)
+    {
+        if(arr.length == 1) return new BST_class.Node(arr[0]);
+        if(arr.length == 0) return null;
+
+        int midIndex = arr.length/2;
+        int[] left = Arrays.copyOfRange(arr, 0, midIndex);
+        int[] right = Arrays.copyOfRange(arr, midIndex+1, arr.length);
+        BST_class.Node midNode = new BST_class.Node(arr[midIndex]);
+
+        midNode.left = sortedArrayToBST(root.left, left);
+        midNode.right = sortedArrayToBST(root.right, right);
+        return midNode;
+    }*/
 
 
     // Helper method for inorder traversal of the BST to view your output
